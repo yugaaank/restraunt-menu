@@ -1,0 +1,38 @@
+<div class="menu-container container">
+    <div class="header-section">
+        <h1 class="text-gradient">Curated Menu</h1>
+        <p class="subtitle">Experience our finest selection of dishes</p>
+    </div>
+
+    <div class="category-filter">
+        <button *ngFor="let cat of categories" class="category-pill" [class.active]="selectedCategory() === cat"
+            (click)="setCategory(cat)">
+            {{ cat }}
+        </button>
+    </div>
+
+    <div class="menu-grid">
+        @for (item of filteredMenuItems(); track item.id) {
+        <mat-card class="menu-item-card">
+            <div class="card-image-wrapper">
+                <img mat-card-image [src]="item.imageUrl" [alt]="item.name">
+                <span class="category-badge">{{ item.category }}</span>
+            </div>
+
+            <mat-card-content>
+                <div class="card-header">
+                    <mat-card-title>{{ item.name }}</mat-card-title>
+                    <span class="price">{{ item.price | currency }}</span>
+                </div>
+                <p class="description">{{ item.description }}</p>
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button mat-flat-button color="primary" class="add-btn" (click)="addToCart(item)">
+                    Add to Order
+                </button>
+            </mat-card-actions>
+        </mat-card>
+        }
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<mat-toolbar class="app-header">
+  <div class="container header-content">
+    <a routerLink="/" class="logo">
+      <span class="logo-icon">🍽️</span>
+      <span class="logo-text">Gourmet</span>
+    </a>
+
+    <span class="spacer"></span>
+
+    <nav class="nav-links">
+      <a mat-button routerLink="/menu" routerLinkActive="active-link">
+        <mat-icon>restaurant_menu</mat-icon>
+        Menu
+      </a>
+      <a mat-button routerLink="/orders" routerLinkActive="active-link">
+        <mat-icon>receipt_long</mat-icon>
+        Orders
+      </a>
+    </nav>
+
+    <div class="actions">
+      <a mat-icon-button routerLink="/cart" class="cart-btn" aria-label="Cart">
+        <mat-icon [matBadge]="cartService.totalItems()" [matBadgeHidden]="cartService.totalItems() === 0"
+          matBadgeColor="warn" aria-hidden="false">
+          shopping_cart
+        </mat-icon>
+      </a>
+    </div>
+  </div>
+</mat-toolbar>

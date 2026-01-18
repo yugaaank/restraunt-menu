@@ -1,0 +1,220 @@
+.orders-page {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-2xl);
+    max-width: 800px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: var(--color-slate-900);
+    margin-bottom: var(--spacing-sm);
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Empty State (Shared with Cart - could be global utility) */
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-2xl) 0;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: var(--bg-surface-secondary);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.icon-wrapper mat-icon {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+    color: var(--text-muted);
+}
+
+.empty-state h2 {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+}
+
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: 20px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: var(--spacing-2xl);
+    display: flex;
+    gap: var(--spacing-xl);
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 24px;
+}
+
+.dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--color-primary-600);
+    border: 4px solid var(--bg-body);
+    /* Use body bg for ring effect */
+    z-index: 2;
+}
+
+.line {
+    width: 2px;
+    background: var(--border-subtle);
+    flex-grow: 1;
+    margin-top: 4px;
+}
+
+.timeline-item:last-child .line {
+    display: none;
+}
+
+.timeline-content {
+    flex-grow: 1;
+}
+
+/* Order Card */
+.order-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-subtle);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+
+.order-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.card-header {
+    padding: var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--bg-surface-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.order-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.order-id {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.order-date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.order-total {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--color-primary-600);
+}
+
+.order-items-preview {
+    padding: var(--spacing-lg);
+    color: var(--text-secondary);
+}
+
+.order-items-preview p {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Expansion View */
+.details-panel {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+.details-panel mat-expansion-panel-header {
+    padding: 0 var(--spacing-lg) !important;
+    height: 48px !important;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.details-panel mat-panel-title {
+    font-size: 0.9rem !important;
+    color: var(--color-primary-600) !important;
+    font-weight: 500;
+}
+
+.order-details-list {
+    padding: var(--spacing-lg) var(--spacing-lg) !important;
+    background: var(--bg-card);
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.95rem;
+}
+
+.detail-info {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.detail-info .qty {
+    color: var(--text-secondary);
+    font-weight: 600;
+    width: 24px;
+}
+
+.detail-divider {
+    height: 1px;
+    background: var(--border-subtle);
+    margin: var(--spacing-md) 0;
+}
+
+.total-row {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0;
+}

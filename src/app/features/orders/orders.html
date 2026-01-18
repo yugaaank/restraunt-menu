@@ -1,0 +1,76 @@
+<div class="container orders-page">
+    <div class="page-header">
+        <h1 class="text-gradient">Order History</h1>
+        <p class="subtitle">Track your past dining experiences</p>
+    </div>
+
+    @if (orderService.orders().length === 0) {
+    <div class="empty-state">
+        <div class="icon-wrapper">
+            <mat-icon>history</mat-icon>
+        </div>
+        <h2>No orders history</h2>
+        <p>You haven't placed any orders yet.</p>
+        <button mat-flat-button color="primary" routerLink="/menu">
+            Start Ordering
+        </button>
+    </div>
+    } @else {
+    <div class="timeline">
+        @for (order of orderService.orders(); track order.id) {
+        <div class="timeline-item">
+            <div class="timeline-marker">
+                <div class="dot"></div>
+                <div class="line"></div>
+            </div>
+
+            <div class="timeline-content">
+                <div class="order-card">
+                    <div class="card-header">
+                        <div class="order-meta">
+                            <span class="order-id">Order {{ order.id }}</span>
+                            <span class="order-date">{{ order.date | date:'mediumDate' }}</span>
+                        </div>
+                        <span class="order-total">{{ order.total | currency }}</span>
+                    </div>
+
+                    <div class="order-items-preview">
+                        <p>{{ order.items.length }} items:
+                            @for (item of order.items; track item.menuItem.id; let last = $last) {
+                            <span>{{ item.menuItem.name }}{{ !last ? ', ' : '' }}</span>
+                            }
+                        </p>
+                    </div>
+
+                    <mat-expansion-panel class="details-panel" hideToggle>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>View Details</mat-panel-title>
+                            <mat-panel-description>
+                                <mat-icon>expand_more</mat-icon>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+
+                        <div class="order-details-list">
+                            @for (item of order.items; track item.menuItem.id) {
+                            <div class="detail-row">
+                                <div class="detail-info">
+                                    <span class="qty">{{ item.quantity }}x</span>
+                                    <span class="name">{{ item.menuItem.name }}</span>
+                                </div>
+                                <span class="price">{{ (item.menuItem.price * item.quantity) | currency }}</span>
+                            </div>
+                            }
+                            <div class="detail-divider"></div>
+                            <div class="detail-row total-row">
+                                <span>Total Paid</span>
+                                <span>{{ order.total | currency }}</span>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    }
+</div>
